@@ -2,7 +2,6 @@ function App() {
     const { Container, Row, Col } = ReactBootstrap;
     return (
         <Container>
-            <title>ToDo Apps by Seiji Gobara</title>
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <TodoListCard />
@@ -91,27 +90,30 @@ function AddItemForm({ onNewItem }) {
     };
 
     return (
-        <Form onSubmit={submitNewItem}>
-            <InputGroup className="mb-3">
-                <Form.Control
-                    value={newItem}
-                    onChange={e => setNewItem(e.target.value)}
-                    type="text"
-                    placeholder="New Item"
-                    aria-describedby="basic-addon1"
-                />
-                <InputGroup.Append>
-                    <Button
-                        type="submit"
-                        variant="success"
-                        disabled={!newItem.length}
-                        className={submitting ? 'disabled' : ''}
-                    >
-                        {submitting ? 'Adding...' : 'Add Item'}
-                    </Button>
-                </InputGroup.Append>
-            </InputGroup>
-        </Form>
+        <div>
+            <h1>ToDo Apps by Seiji Gobara</h1>
+            <Form onSubmit={submitNewItem}>
+                <InputGroup className="mb-3">
+                    <Form.Control
+                        value={newItem}
+                        onChange={e => setNewItem(e.target.value)}
+                        type="text"
+                        placeholder="New Item"
+                        aria-describedby="basic-addon1"
+                    />
+                    <InputGroup.Append>
+                        <Button
+                            type="submit"
+                            variant="success"
+                            disabled={!newItem.length}
+                            className={submitting ? 'disabled' : ''}
+                        >
+                            {submitting ? 'Adding...' : 'Add Item'}
+                        </Button>
+                    </InputGroup.Append>
+                </InputGroup>
+            </Form>
+        </div>
     );
 }
 
